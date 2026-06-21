@@ -3,6 +3,8 @@ import { useFrame } from '@react-three/fiber'
 import { MeshTransmissionMaterial, Float, ContactShadows, Environment, Lightformer } from '@react-three/drei'
 import * as THREE from 'three'
 
+const isMobile = window.innerWidth < 768
+
 interface HeroArtifactProps {
   scrollProgress: number
 }
@@ -11,7 +13,8 @@ function OnyxStone({ scrollProgress }: { scrollProgress: number }) {
   const meshRef = useRef<THREE.Mesh>(null!)
 
   const geometry = useMemo(() => {
-    const geo = new THREE.SphereGeometry(0.5, 128, 128)
+    const segments = isMobile ? 64 : 128
+    const geo = new THREE.SphereGeometry(0.5, segments, segments)
     const pos = geo.attributes.position
     const v = new THREE.Vector3()
     for (let i = 0; i < pos.count; i++) {
@@ -35,6 +38,19 @@ function OnyxStone({ scrollProgress }: { scrollProgress: number }) {
     const breathe = 1 + Math.sin(t * 0.8) * 0.012
     meshRef.current.scale.setScalar(breathe)
   })
+
+  if (isMobile) {
+    return (
+      <mesh ref={meshRef} geometry={geometry}>
+        <meshStandardMaterial
+          color="#B8924A"
+          metalness={0.85}
+          roughness={0.12}
+          envMapIntensity={1.8}
+        />
+      </mesh>
+    )
+  }
 
   return (
     <mesh ref={meshRef} geometry={geometry}>
@@ -93,7 +109,7 @@ export function HeroArtifact({ scrollProgress }: HeroArtifactProps) {
 
   return (
     <>
-      <Environment preset="apartment" environmentIntensity={0.5}>
+      <Environment preset="apartment" environmentIntensity={isMobile ? 0.8 : 0.5}>
         <Lightformer position={[2, 3, 2]} scale={3} intensity={2} color="#F4EFE7" />
         <Lightformer position={[-3, 1, -2]} scale={2} intensity={1.5} color="#D8B871" />
         <Lightformer position={[0, -2, 3]} scale={2} intensity={0.8} color="#C9A35B" />
@@ -106,13 +122,15 @@ export function HeroArtifact({ scrollProgress }: HeroArtifactProps) {
         </group>
       </Float>
 
-      <ContactShadows
-        position={[0, -1.2, 0]}
-        opacity={0.25}
-        scale={4}
-        blur={2.5}
-        color="#6E5A45"
-      />
+      {!isMobile && (
+        <ContactShadows
+          position={[0, -1.2, 0]}
+          opacity={0.25}
+          scale={4}
+          blur={2.5}
+          color="#6E5A45"
+        />
+      )}
     </>
   )
 }
