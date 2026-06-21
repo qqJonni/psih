@@ -19,26 +19,20 @@ export function SceneCanvas({ scrollProgress }: SceneCanvasProps) {
       <Canvas
         dpr={isMobile ? 1 : Math.min(window.devicePixelRatio, 2)}
         camera={{ position: [0, 0, 8], fov: 22 }}
-        gl={{ antialias: !isMobile, alpha: true }}
+        gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>
           <HeroArtifact scrollProgress={scrollProgress} />
-          {isMobile ? (
-            <EffectComposer multisampling={0}>
-              <Vignette eskil={false} offset={0.2} darkness={0.3} />
-            </EffectComposer>
-          ) : (
-            <EffectComposer multisampling={4}>
-              <Bloom
-                luminanceThreshold={0.8}
-                luminanceSmoothing={0.9}
-                intensity={0.4}
-                mipmapBlur
-              />
-              <Vignette eskil={false} offset={0.2} darkness={0.3} />
-            </EffectComposer>
-          )}
+          <EffectComposer multisampling={0}>
+            <Bloom
+              luminanceThreshold={0.9}
+              luminanceSmoothing={0.9}
+              intensity={0.3}
+              mipmapBlur
+            />
+            <Vignette eskil={false} offset={0.2} darkness={0.3} />
+          </EffectComposer>
         </Suspense>
       </Canvas>
     </div>
