@@ -17,14 +17,14 @@ export function SceneCanvas({ scrollProgress }: SceneCanvasProps) {
       style={{ opacity: Math.max(0, 1 - scrollProgress * 4) }}
     >
       <Canvas
-        dpr={isMobile ? 1 : Math.min(window.devicePixelRatio, 2)}
+        dpr={Math.min(window.devicePixelRatio, 2)}
         camera={{ position: [0, 0, 8], fov: 22 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>
           <HeroArtifact scrollProgress={scrollProgress} />
-          <EffectComposer multisampling={0}>
+          <EffectComposer multisampling={4}>
             <Bloom
               luminanceThreshold={0.9}
               luminanceSmoothing={0.9}
