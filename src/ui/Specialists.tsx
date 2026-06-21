@@ -2,8 +2,8 @@ import { SPECIALISTS } from '../content/texts'
 
 export function Specialists() {
   return (
-    <section id="specialists" className="relative z-10 py-20 md:py-32 px-6" style={{ background: 'var(--cream)' }}>
-      <div className="max-w-5xl mx-auto">
+    <section id="specialists" className="relative z-10 py-16 md:py-28 px-6" style={{ background: 'var(--cream)' }}>
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <div className="w-12 h-[0.5px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
           <h2

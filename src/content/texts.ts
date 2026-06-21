@@ -12,7 +12,6 @@ export const NAV_ITEMS = [
   { label: 'Направления', href: '#directions' },
   { label: 'Специалисты', href: '#specialists' },
   { label: 'Пространство', href: '#space' },
-  { label: 'Запись', href: '#booking' },
 ]
 
 export const MANIFESTO = {

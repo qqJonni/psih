@@ -35,12 +35,6 @@ export function Hero() {
         </a>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-[fadeUp_1s_2.2s_forwards]">
-        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="var(--brass)" strokeWidth="0.75" className="animate-bounce" style={{ animationDuration: '2.5s' }}>
-          <rect x="1" y="1" width="12" height="20" rx="6" />
-          <line x1="7" y1="5" x2="7" y2="9" />
-        </svg>
-      </div>
     </section>
   )
 }

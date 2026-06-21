@@ -66,7 +66,7 @@ function BrassRing({ scrollProgress }: { scrollProgress: number }) {
   useFrame((state) => {
     if (!ringRef.current) return
     const t = state.clock.elapsedTime
-    ringRef.current.rotation.x = Math.PI * 0.35 + Math.sin(t * 0.04) * 0.03
+    ringRef.current.rotation.x = Math.PI * 0.47 + Math.sin(t * 0.04) * 0.03
     ringRef.current.rotation.z = t * 0.03 + scrollProgress * Math.PI * 0.3
   })
 

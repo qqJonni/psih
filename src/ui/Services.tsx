@@ -2,9 +2,9 @@ import { DIRECTIONS } from '../content/texts'
 
 export function Services() {
   return (
-    <section id="directions" className="relative z-10 py-24 md:py-40 px-6" style={{ background: 'var(--ivory)' }}>
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16 md:mb-24">
+    <section id="directions" className="relative z-10 py-16 md:py-28 px-6" style={{ background: 'var(--ivory)' }}>
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
           <div className="w-12 h-[0.5px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
           <h2
             className="font-serif text-3xl md:text-5xl tracking-[0.06em]"
@@ -18,7 +18,7 @@ export function Services() {
           {DIRECTIONS.map((item) => (
             <div
               key={item.title}
-              className="group p-6 md:p-10 transition-all duration-700 cursor-default"
+              className="group p-6 md:p-10 text-center transition-all duration-700 cursor-default"
               style={{ background: 'var(--ivory)' }}
             >
               <h3
@@ -31,7 +31,7 @@ export function Services() {
                 {item.description}
               </p>
               <div
-                className="w-0 group-hover:w-12 h-[0.5px] mt-6 transition-all duration-700 ease-out"
+                className="w-0 group-hover:w-12 h-[0.5px] mt-6 mx-auto transition-all duration-700 ease-out"
                 style={{ background: 'var(--brass)' }}
               />
             </div>

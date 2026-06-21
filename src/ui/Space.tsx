@@ -8,9 +8,9 @@ const TEXTURES = [
 
 export function Space() {
   return (
-    <section id="space" className="relative z-10 py-20 md:py-40 px-6" style={{ background: 'var(--cream)' }}>
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
+    <section id="space" className="relative z-10 py-16 md:py-28 px-6" style={{ background: 'var(--cream)' }}>
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
           <div className="w-12 h-[0.5px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
           <h2
             className="font-serif text-3xl md:text-5xl tracking-[0.06em] mb-4"

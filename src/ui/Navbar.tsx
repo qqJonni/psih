@@ -7,7 +7,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div
-        className="mx-4 md:mx-6 mt-3 md:mt-5 px-5 md:px-6 py-3 md:py-4 rounded-2xl flex items-center justify-between"
+        className="mx-3 lg:mx-6 mt-3 md:mt-5 px-4 lg:px-6 py-3 md:py-4 rounded-2xl flex items-center justify-between"
         style={{
           background: 'var(--mist)',
           backdropFilter: 'blur(20px)',
@@ -20,12 +20,12 @@ export function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-5 lg:gap-8">
+        <div className="hidden md:flex items-center gap-3 lg:gap-6">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-[10px] lg:text-xs tracking-[0.12em] uppercase transition-colors duration-500 hover:opacity-70 whitespace-nowrap"
+              className="text-[10px] lg:text-xs tracking-[0.08em] uppercase transition-colors duration-500 hover:opacity-70 whitespace-nowrap"
               style={{ color: 'var(--bronze)' }}
             >
               {item.label}
@@ -33,7 +33,7 @@ export function Navbar() {
           ))}
           <a
             href="#booking"
-            className="px-5 py-2 text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-500"
+            className="px-4 lg:px-6 py-2 lg:py-2.5 text-[10px] lg:text-xs tracking-[0.08em] uppercase rounded-full transition-all duration-500 whitespace-nowrap"
             style={{
               background: 'var(--brass)',
               color: 'var(--ivory)',

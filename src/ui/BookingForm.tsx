@@ -10,7 +10,7 @@ export function BookingForm() {
   }
 
   return (
-    <section id="booking" className="relative z-10 py-20 md:py-32 px-6 md:px-8" style={{ background: 'var(--ivory)' }}>
+    <section id="booking" className="relative z-10 py-16 md:py-28 px-6 md:px-8" style={{ background: 'var(--ivory)' }}>
       <div className="max-w-lg mx-auto">
         <div className="text-center mb-12">
           <div className="w-12 h-[1px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
