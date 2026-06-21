@@ -8,7 +8,7 @@ const TEXTURES = [
 
 export function Space() {
   return (
-    <section id="space" className="relative z-10 py-24 md:py-40 px-6" style={{ background: 'var(--cream)' }}>
+    <section id="space" className="relative z-10 py-20 md:py-40 px-6" style={{ background: 'var(--cream)' }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="w-12 h-[0.5px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
@@ -23,14 +23,14 @@ export function Space() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
           {TEXTURES.map((t) => (
-            <div key={t.label} className="group flex flex-col items-center gap-3">
+            <div key={t.label} className="group flex flex-col items-center gap-2 md:gap-3">
               <div
-                className="w-full aspect-square rounded-2xl transition-transform duration-700 group-hover:scale-95"
+                className="w-full aspect-square rounded-xl md:rounded-2xl transition-transform duration-700 group-hover:scale-95"
                 style={{ background: t.color, opacity: 0.7 }}
               />
-              <span className="text-xs tracking-[0.1em] uppercase" style={{ color: 'var(--bronze)' }}>
+              <span className="text-[9px] md:text-xs tracking-[0.08em] uppercase text-center" style={{ color: 'var(--bronze)' }}>
                 {t.label}
               </span>
             </div>

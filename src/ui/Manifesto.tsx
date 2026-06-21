@@ -2,7 +2,7 @@ import { MANIFESTO } from '../content/texts'
 
 export function Manifesto() {
   return (
-    <section id="philosophy" className="relative z-10 py-32 md:py-48 px-6">
+    <section id="philosophy" className="relative z-10 py-20 md:py-48 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <div className="w-12 h-[0.5px] mx-auto mb-10" style={{ background: 'var(--brass)' }} />
         <h2

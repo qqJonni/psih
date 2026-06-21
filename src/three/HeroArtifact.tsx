@@ -11,7 +11,7 @@ function OnyxStone({ scrollProgress }: { scrollProgress: number }) {
   const meshRef = useRef<THREE.Mesh>(null!)
 
   const geometry = useMemo(() => {
-    const geo = new THREE.SphereGeometry(0.6, 128, 128)
+    const geo = new THREE.SphereGeometry(0.5, 128, 128)
     const pos = geo.attributes.position
     const v = new THREE.Vector3()
     for (let i = 0; i < pos.count; i++) {
@@ -20,7 +20,7 @@ function OnyxStone({ scrollProgress }: { scrollProgress: number }) {
         Math.sin(v.x * 2.5 + v.y * 1.3) * 0.06 +
         Math.sin(v.y * 3.1 + v.z * 2.0) * 0.08 +
         Math.cos(v.z * 2.8 + v.x * 1.5) * 0.04
-      v.normalize().multiplyScalar(0.6 * (1 + noise))
+      v.normalize().multiplyScalar(0.5 * (1 + noise))
       pos.setXYZ(i, v.x, v.y, v.z)
     }
     geo.computeVertexNormals()
@@ -40,22 +40,21 @@ function OnyxStone({ scrollProgress }: { scrollProgress: number }) {
     <mesh ref={meshRef} geometry={geometry}>
       <MeshTransmissionMaterial
         backside
-        backsideThickness={0.5}
-        samples={8}
-        thickness={1.5}
-        chromaticAberration={0.05}
+        backsideThickness={0.3}
+        samples={6}
+        thickness={0.5}
+        chromaticAberration={0.02}
         anisotropy={0.3}
-        distortion={0.3}
-        distortionScale={0.4}
-        temporalDistortion={0.06}
+        distortion={0.1}
+        distortionScale={0.2}
+        temporalDistortion={0.1}
         ior={1.5}
-        color="#c9a872"
-        attenuationColor="#8a6530"
-        attenuationDistance={0.35}
-        roughness={0.12}
-        transmission={0.92}
-        resolution={256}
-        toneMapped={false}
+        color="#C9A35B"
+        attenuationColor="#E8DFD1"
+        attenuationDistance={0.6}
+        roughness={0.1}
+        transmission={0.95}
+        resolution={512}
       />
     </mesh>
   )
@@ -67,13 +66,13 @@ function BrassRing({ scrollProgress }: { scrollProgress: number }) {
   useFrame((state) => {
     if (!ringRef.current) return
     const t = state.clock.elapsedTime
-    ringRef.current.rotation.x = Math.PI * 0.45 + Math.sin(t * 0.04) * 0.05
+    ringRef.current.rotation.x = Math.PI * 0.35 + Math.sin(t * 0.04) * 0.03
     ringRef.current.rotation.z = t * 0.03 + scrollProgress * Math.PI * 0.3
   })
 
   return (
     <mesh ref={ringRef}>
-      <torusGeometry args={[0.85, 0.012, 32, 128]} />
+      <torusGeometry args={[0.78, 0.01, 32, 128]} />
       <meshStandardMaterial
         color="#B8924A"
         metalness={0.95}
@@ -94,16 +93,10 @@ export function HeroArtifact({ scrollProgress }: HeroArtifactProps) {
 
   return (
     <>
-      <Environment
-        background={false}
-        environmentIntensity={0.8}
-      >
-        <color attach="background" args={['#f4efe7']} />
-        <Lightformer form="circle" position={[0, 5, -5]} scale={12} intensity={2} color="#F4EFE7" />
-        <Lightformer form="circle" position={[5, 0, 3]} scale={8} intensity={1.5} color="#f5e6c8" />
-        <Lightformer form="circle" position={[-5, -2, -3]} scale={8} intensity={1} color="#D8B871" />
-        <Lightformer form="circle" position={[0, -6, 0]} scale={14} intensity={1} color="#E8DFD1" />
-        <Lightformer form="circle" position={[0, 0, 8]} scale={14} intensity={1.2} color="#faf5ed" />
+      <Environment preset="apartment" environmentIntensity={0.5}>
+        <Lightformer position={[2, 3, 2]} scale={3} intensity={2} color="#F4EFE7" />
+        <Lightformer position={[-3, 1, -2]} scale={2} intensity={1.5} color="#D8B871" />
+        <Lightformer position={[0, -2, 3]} scale={2} intensity={0.8} color="#C9A35B" />
       </Environment>
 
       <Float speed={0.6} rotationIntensity={0.08} floatIntensity={0.2}>

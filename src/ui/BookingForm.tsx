@@ -10,8 +10,8 @@ export function BookingForm() {
   }
 
   return (
-    <section id="booking" className="relative z-10 py-24 md:py-32 px-6" style={{ background: 'var(--ivory)' }}>
-      <div className="max-w-xl mx-auto">
+    <section id="booking" className="relative z-10 py-20 md:py-32 px-6 md:px-8" style={{ background: 'var(--ivory)' }}>
+      <div className="max-w-lg mx-auto">
         <div className="text-center mb-12">
           <div className="w-12 h-[1px] mx-auto mb-6" style={{ background: 'var(--brass)' }} />
           <h2
@@ -27,7 +27,7 @@ export function BookingForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="p-8 md:p-10 rounded-2xl space-y-6"
+          className="p-5 md:p-10 rounded-2xl space-y-5 md:space-y-6"
           style={{
             background: 'var(--mist)',
             backdropFilter: 'blur(16px)',

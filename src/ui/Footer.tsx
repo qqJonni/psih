@@ -2,7 +2,7 @@ import { CLINIC, NAV_ITEMS } from '../content/texts'
 
 export function Footer() {
   return (
-    <footer className="relative z-10 py-16 px-6" style={{ background: 'var(--cream)' }}>
+    <footer className="relative z-10 py-12 md:py-16 px-6" style={{ background: 'var(--cream)' }}>
       <div className="max-w-5xl mx-auto">
         <div className="w-full h-[1px] mb-12" style={{ background: 'var(--brass)', opacity: 0.3 }} />
 

@@ -14,11 +14,11 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(184, 146, 74, 0.1)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden" style={{ background: 'rgba(184, 146, 74, 0.1)' }}>
           {DIRECTIONS.map((item) => (
             <div
               key={item.title}
-              className="group p-8 md:p-10 transition-all duration-700 cursor-default"
+              className="group p-6 md:p-10 transition-all duration-700 cursor-default"
               style={{ background: 'var(--ivory)' }}
             >
               <h3
